@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .center-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .content-box {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .content-box h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            margin: 10px 0;
+            border-radius: 50px;
+            width: 200px;
+            transition: transform 0.3s;
+        }
+        .btn-custom:hover {
+            transform: scale(1.1);
+        }
+        .btn-primary-custom {
+            background: #ff7e5f;
+            border: none;
+        }
+        .btn-primary-custom:hover {
+            background: #feb47b;
+        }
+        .btn-secondary-custom {
+            background: #43cea2;
+            border: none;
+        }
+        .btn-secondary-custom:hover {
+            background: #185a9d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container center-box">
+    <div class="content-box">
+        <h1>Welcome to Our Platform</h1>
+        <a href="{% url 'register' %}" class="btn btn-primary btn-custom btn-primary-custom">Register Here</a>
+        <br>
+        <a href="{% url 'my-login' %}" class="btn btn-secondary btn-custom btn-secondary-custom">Login Here</a>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

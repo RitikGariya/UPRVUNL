@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #333;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh; /* Use min-height instead of height to allow scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-top: 70px; 
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 20px; /* Added margin to separate from edges */
+        }
+        h1, h2 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .pad {
+            padding: 0px 0px 0px 15px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'user-logout' %}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>Fill the Form</h1>
+    <form method="POST" enctype="multipart/form-data" autocomplete="off" id="firm_details_form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_firm_name">Firm Name:</label>
+            {{ form.firm_name }}
+        </div>
+        <div class="form-group">
+            <label for="id_mobile_no">Mobile No:</label>
+            {{ form.mobile_no }}
+        </div>
+        <div class="form-group">
+            <label for="id_address">Office Address:</label>
+            {{ form.address }}
+        </div>
+        <div class="form-group">
+            <label for="id_gstn_no">GSTN No:</label>
+            {{ form.gstn_no }}
+        </div>
+        <div class="form-group">
+            <label for="id_msme_status">MSME Status:</label>
+            {{ form.msme_status }}
+        </div>
+        <div id="certification_name_wrapper" style="display: none;">
+            <div class="form-group">
+                <label for="id_certification_name">Certification Name:</label>
+                {{ form.certification_name }}
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="id_pan">PAN:</label>
+            {{ form.pan }}
+        </div>
+        <div class="form-group">
+            <label for="id_manf_plant">Manufacture location:</label>
+            {{ form.manf_plant_location }}
+        </div>
+        <div class="form-group">
+            <label for="id_manf_capacity">Manufacture capacity:</label>
+            {{ form.manf_capacity }}
+        </div>
+        <p><b>Biomass Pellets Specification:-</b></p>
+        <div class="form-group pad">
+            <label for="id_gcv_range">GCV range:</label>
+            {{ form.gcv_range }}
+        </div>
+        <div class="form-group pad">
+            <label for="id_moisture">Mositure:</label>
+            {{ form.moisture }}
+        </div>
+        <div class="form-group pad">
+            <label for="id_fire" placeholder="Enter in percentage">Fire:</label>
+            {{ form.fire }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_base_material_used">Base Material Used:</label>
+            {{ form.base_material_used }}
+        </div>
+        <div class="form-group">
+            <label for="id_material_source">Material source:</label>
+            {{ form.material_source }}
+        </div>
+        <div class="form-group">
+            <label for="id_material_price">Material Price:</label>
+            {{ form.material_price }}
+        </div>
+        <div class="form-group">
+            <label for="id_binding_material">Binding Material - its additive and its percentage:</label>
+            {{ form.binding_material }}
+        </div>
+        <div class="form-group">
+            <label for="id_untied_capacity">Untied Capacity/Unutilized Capacity:</label>
+            {{ form.untied_capacity }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_No_of_loi">Number of LOIs in Present:</label>
+            {{ form.No_of_loi }}
+        </div>
+        <div class="form-group">
+            <label for="id_pref_plant_of_unl">Prefernce plant of UNL & Daily Supply:</label>
+            {{ form.pref_plant_of_unl }}
+        </div>
+        
+        <div class="form-group">
+            <label for="id_dist_from_plant">Distance From Plant:</label>
+            {{ form.dist_from_plant }}
+        </div>
+        
+        <div class="form-group">
+            <label for="id_Trans_charge">Transportation charge (Rs/Trans.):</label>
+            {{ form.Trans_Charge }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_Future_cap_add">Future Capacity addition Info(Compulsory):</label>
+            {{ form.Future_cap_add }}
+        </div>
+
+        <div id="Future_cap_add_wrapper" style="display: none;">
+            <div class="form-group">
+                <label for="id_plant_location">Plant Location:</label>
+                {{ form.plant_location }}
+            </div>
+            <div class="form-group">
+                <label for="id_capacity">Capacity:</label>
+                {{ form.capacity }}
+            </div>
+            <div class="form-group">
+                <label for="id_GCV">GCV:</label>
+                {{ form.GCV }}
+            </div>
+            <div class="form-group">
+                <label for="id_raw_material">Raw Material:</label>
+                {{ form.raw_material }}
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="id_firm_pdf">Firm PDF:</label>
+            {{ form.firm_pdf }}
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        var msmeCheckbox = $('#id_msme_status');
+        var certificationNameWrapper = $('#certification_name_wrapper');
+        
+        // Initially hide the certification name field
+        certificationNameWrapper.hide();
+        
+        msmeCheckbox.change(function(){
+            if (this.checked) {
+                certificationNameWrapper.show();
+                $('#id_certification_name').prop('required', true);
+            } else {
+                certificationNameWrapper.hide();
+                $('#id_certification_name').prop('required', false);
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        var futureCapCheckbox = $('#id_Future_cap_add');
+        var futureCapFields = $('#Future_cap_add_wrapper');
+
+        // Initially hide the future capacity fields
+        if (futureCapCheckbox.prop('checked')) {
+            futureCapFields.show();
+        } else {
+            futureCapFields.hide();
+        }
+
+        // Toggle visibility based on checkbox change
+        futureCapCheckbox.change(function(){
+            if (this.checked) {
+                futureCapFields.show();
+            } else {
+                futureCapFields.hide();
+            }
+        });
+    });
+</script>
+</body>
+</html>
